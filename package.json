@@ -1,0 +1,22 @@
+{
+  "name": "ifms-square",
+  "version": "0.1.0",
+  "description": "new fetching project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indieforger/ifms-square.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/indieforger/ifms-square/issues"
+  },
+  "homepage": "https://github.com/indieforger/ifms-square#readme",
+  "dependencies": {
+    "hapi": "^13.0.0"
+  }
+}
