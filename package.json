@@ -10,13 +10,18 @@
     "type": "git",
     "url": "git+https://github.com/indieforger/ifms-square.git"
   },
-  "author": "",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/indieforger/ifms-square/issues"
   },
   "homepage": "https://github.com/indieforger/ifms-square#readme",
   "dependencies": {
-    "hapi": "^13.0.0"
+    "bell": "^6.3.0",
+    "boom": "^3.1.2",
+    "glue": "^3.2.0",
+    "hapi-auth-cookie": "^6.1.0",
+    "hapi-user-router": "^0.2.2",
+    "hoek": "^3.0.4",
+    "nodemon": "^1.9.0"
   }
 }
