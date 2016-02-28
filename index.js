@@ -5,11 +5,9 @@ const
 	Hoek = require('hoek'),
 	Glue = require('glue'),
 	config = require('./config'),
-	//todo: figure out when this becomes accessible for registered plugins as server.settings.app
-	server = new Hapi.Server({ app: { config: config }})
+	server = new Hapi.Server()
 
-let uuid = 1       // Use seq instead of proper unique identifiers for demo only
-
+let uuid = 1       // todo: unique identifiers
 function handleTwitterLogin(request, reply) {
 	//Just store the third party credentials in the session as an example. You could do something
 	//more useful here - like loading or setting up an account (social signup).
@@ -39,16 +37,12 @@ const options = {
 	relativeTo: __dirname,
 	preRegister: function (server, callback) {
 		config.auth.twitter.handler = handleTwitterLogin
-		// make config available for the plugin using 'preRegister' hook
-		// todo: might not be the best way to expose config to app but unlike other suggested methods this one just works
 		server.app.config = config
 		callback()
 	}
 }
 
-// register and configure User Router Plugin
 Glue.compose(manifest, options, (err, server) => {
-
 	Hoek.assert(!err, err)
 
 	// set cache policy
@@ -56,6 +50,7 @@ Glue.compose(manifest, options, (err, server) => {
 		segment: config.auth.session.segment,
 		expiresIn: config.auth.session.expiresIn
 	})
+
 	// expose cache in a runtime app state
 	server.app.cache = cache
 
